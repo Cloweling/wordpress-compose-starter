@@ -11,15 +11,18 @@ With Docker installed and running, in Terminal:
 ````
 sudo usermod -a -G www-data username
 ````
-
 Then clone the project: 
 ````
 git clone https://github.com/Cloweling/wordpress-compose-starter.git
 cd docker-compose-starter
 ````
 
-Then raise the project:
+Then create the folder:
+````
+mkdir wp-content
+````
 
+Then raise the project:
 ````
 docker-compose up
 ````
