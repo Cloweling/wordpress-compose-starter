@@ -2,44 +2,47 @@
 
 This repository was created as part of a tutorial on how to [setup a local development environment to build a WordPress theme](https://davidyeiser.com/tutorial/docker-wordpress-theme-setup).
 
+## Requirements
+
+* Docker (Last update)
+* Docker Compose
+* Ubuntu, Linux mint, etc.
+
 ## Installation
-
-If you don’t have Docker and Docker Compose installed follow the steps outlined in the blog post linked above.
-
-With Docker installed and running, in Terminal:
-
+Before installing add your user the group www-data and reboot.
 ````
 sudo usermod -a -G www-data username
 ````
+
 Then clone the project: 
 ````
 git clone https://github.com/Cloweling/wordpress-compose-starter.git
 cd docker-compose-starter
 ````
 
-Then create the folder:
+Install and run service (This is only done once, unless you uninstall it)
 ````
-mkdir wp-content
-````
-
-Then raise the project:
-````
-docker-compose up
+make install
 ````
 
-Then inside the wp-content folder change the permissions so that the www-data group can modify:
-````
-cd wp-content
-sudo find /var/www -type d -exec chmod 2775 {} +
-sudo find /var/www -type f -exec chmod 0664 {} +
-````
-
-Then to continue the installation of wordpress with your browser go:
+To go Wordpress 
 ````
 http://localhost:8000/
 ````
 
-If you want to restart your installation, delete the content of wp-content and type the following command:
+Run service
 ````
-docker-compose down --volumes
+make start
+````
+
+Stop service
+````
+make stop
+````
+
+
+
+Restart and leave the project clean (Be careful because it removes the themes)
+````
+make uninstall
 ````
