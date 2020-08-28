@@ -40,9 +40,14 @@ Stop service
 make stop
 ````
 
-
-
 Restart and leave the project clean (Be careful because it removes the themes)
 ````
 make uninstall
+````
+## FQA
+How to allow using the uploads folder?
+````
+cd wp-content && mkdir uploads
+sudo chown www-data:www-data uploads
+sudo chmod 775 uploads
 ````
